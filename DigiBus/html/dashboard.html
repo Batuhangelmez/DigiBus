@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../css/dashboard_style.css" />
+    <style>
+      /* Genel stil ayarları */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        height: 100vh;
+        background: #f4f4f4;
+      }
+
+      /* Navbar stili */
+      .navbar {
+        width: 250px;
+        background: #004466;
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+      }
+
+      .navbar h2 {
+        margin-bottom: 30px;
+      }
+
+      .navbar a {
+        text-decoration: none;
+        color: #fff;
+        margin: 10px 0;
+        padding: 10px 20px;
+        width: 90%;
+        text-align: center;
+        border-radius: 5px;
+        transition: background 0.3s;
+      }
+
+      .navbar a:hover {
+        background: #003355;
+      }
+
+      /* Dashboard alanı */
+      .dashboard {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+      }
+
+      .dashboard h1 {
+        margin-bottom: 20px;
+        color: #333;
+      }
+
+      /* Harita stili */
+      #map {
+        width: 100%;
+        max-width: 800px;
+        height: 500px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <div class="navbar">
+      <h2>Sahil Seyahat</h2>
+      <a href="index.html">Çıkış</a>
+    </div>
+
+    <!-- Dashboard -->
+    <div class="dashboard">
+      <h1>İYİ YOLCULUKLAR</h1>
+      <div id="map"></div>
+    </div>
+
+    <!-- Harita Scripti (Google Maps API Kullanılacaksa Ekleyin) -->
+    <script>
+      function initMap() {
+        const location = { lat: 39.92077, lng: 32.85411 }; // Örnek olarak Ankara
+        const map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 10,
+          center: location,
+        });
+        const marker = new google.maps.Marker({
+          position: location,
+          map: map,
+        });
+      }
+    </script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"
+      async
+      defer
+    ></script>
+  </body>
+</html>
